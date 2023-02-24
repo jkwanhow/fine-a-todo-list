@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 export default function Example({}){
 
-    const [clicks, setClicks] = useState<number>(0);
+    const [clicks, setClicks] = useState(0);
     const handleIncrementClick = () => {
         setClicks(clicks+1);
     }

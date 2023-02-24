@@ -1,12 +1,12 @@
-import {render, waitFor, fireEvent} from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import React from 'react';
+import {render, fireEvent} from '@testing-library/react';
 
 import Example from '../Example';
 
 describe('Example Component used to test initial testing', () => {
 
     it('should render exactly one button', () => {
-        const {getAllByRole} = render(<Example/>)
+        const {getAllByRole} = render(<Example/>);
         
         // Act
         const buttons = getAllByRole('button');
@@ -16,7 +16,7 @@ describe('Example Component used to test initial testing', () => {
     })
 
     it('should increment the value when button clicked', async () => {
-        const {getByRole, getByTestId} = render(<Example />)
+        const {getByRole, getByTestId} = render(<Example />);
 
         // Act
         const initialClicks = Number(getByTestId('number-of-clicks').textContent);
@@ -26,6 +26,6 @@ describe('Example Component used to test initial testing', () => {
         
         // Assert number of clicks after should be greater than number of clicks before the button
         // press by one
-        expect(initialClicks - postButtonPressClicks).toBe(1);
+        expect(postButtonPressClicks - initialClicks).toBe(1);
     })
 })
