@@ -45,7 +45,6 @@ body {
     width: 85%;
 }
 
-
 .todo-row-container .header .expand-icon {
     height: 3rem;
     width: 10%;
@@ -54,21 +53,19 @@ body {
 }
 
 .rotate {
-    transform: rotate(-180deg);
+    transform: rotate(180deg);
 }
 
 .todo-row-container .header .expand-icon:hover {
     opacity: 1;
 }
 
-
 .todo-row-container .header .edit-icon {
     margin-bottom: auto;
     height: 1rem;
     width: 3%;
     opacity: 0.2;
-    visibility: hidden;
-    
+    visibility: hidden; 
 }
 
 .todo-row-container:hover .edit-icon {
@@ -77,4 +74,15 @@ body {
 
 .todo-row-container .header .edit-icon:hover {
     opacity: 0.8;
+}
+
+.line-seperator {
+    width: 100%;
+    outline: 1px solid #AAAAAA;
+    opacity: 0.2;
+}
+
+.details-container {
+    min-height: 200px;
+    padding: 20px;
 }

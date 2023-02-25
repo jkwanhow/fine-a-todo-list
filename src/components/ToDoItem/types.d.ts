@@ -4,3 +4,6 @@ export interface HeaderProps {
     handleExpandClick?: () => void;
 
 }
+export interface DetailsProps {
+    details: string;
+}
