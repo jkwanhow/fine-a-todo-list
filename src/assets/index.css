@@ -49,6 +49,16 @@ body {
 .todo-row-container .header .expand-icon {
     height: 3rem;
     width: 10%;
+    opacity: 0.75;
+    transition: all 0.2s linear;
+}
+
+.rotate {
+    transform: rotate(-180deg);
+}
+
+.todo-row-container .header .expand-icon:hover {
+    opacity: 1;
 }
 
 
