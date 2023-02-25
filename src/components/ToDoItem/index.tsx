@@ -1,17 +1,18 @@
 import React, {useState} from 'react'
+
 import Header from "./Header"
 import Details from './Details';
-const tempDescription = 'this is a temporary description for now will delete later';
+import { TaskProps } from './types';
 
-export default function({}){
+
+export default function({title, details}:TaskProps){
     const [expanded, setExpanded] = useState(false);
     const toggleExpand = () => { setExpanded(!expanded); }
-
     return(
     <div className='todo-row-container'>
-        <Header title='example title' expanded={expanded} handleExpandClick={toggleExpand}/>
+        <Header title={title} expanded={expanded} handleExpandClick={toggleExpand} canExpand={details?true:false}/>
         {expanded?
-        <Details details={tempDescription} />
+        <Details details={details} />
         :
         null
         }

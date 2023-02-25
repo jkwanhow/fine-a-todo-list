@@ -1,5 +1,6 @@
 import ToDoItem from "./components/ToDoItem"
 
+const tempDescription = 'this is a temporary description for now will delete later';
 
 function App() {
 
@@ -7,7 +8,7 @@ function App() {
   return (
     <div style={{marginTop: '100px', width: '100%', display: 'flex', justifyContent:'center'}}>
       <div style={{width: '50%'}}>
-      <ToDoItem />
+      <ToDoItem title='example title' details={tempDescription} />
       </div>
     </div>
   )
