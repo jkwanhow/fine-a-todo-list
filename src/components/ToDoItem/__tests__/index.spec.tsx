@@ -7,7 +7,7 @@ describe('Task Row Component', () => {
 
     it('should recieve the a title and display the title', () => {
         const title = 'exampleTitle124321'
-        const example1Props = {title, details: ''};
+        const example1Props = {title, details: '', complete:true};
 
         const {getByRole} = render(<ToDoItem {...example1Props} />)
         const h1Element = getByRole('heading');
@@ -18,7 +18,7 @@ describe('Task Row Component', () => {
 
     it('should be able to expand and show details', () => {
         const details = 'long description example 123123321'
-        const example2Props = {title:'dumby title', details};
+        const example2Props = {title:'dumby title', details, complete:true};
         
         const {getByTestId} = render(<ToDoItem {...example2Props} />)
         const detailsElementPreClick = screen.queryByTestId('details-text')
@@ -39,7 +39,7 @@ describe('Task Row Component', () => {
     })
 
     it('should not have an expand button if there are no details', () => {
-        render(<ToDoItem title='no details Item' details='' />);
+        render(<ToDoItem title='no details Item' details='' complete={true}/>);
 
         const expandButton = screen.queryByTestId('expand-button');
 

@@ -4,6 +4,8 @@
     --generic-font: "Roboto";
     --light-blue: #e2f4ff;
     --light-blue-secondary: #f2f9fe;
+    --light-blue-three: #f6f9fb;
+    --light-blue-checked: #9ad8ff;
     --dark-blue: #120d61;
     --font-color-light: #000000;
 }
@@ -40,9 +42,41 @@ body {
     width: 100%;
     height: 100%;
 }
+.header .checkbox-container {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.header .checkbox-container .row-checkbox{
+    display: none;
+    position: absolute;
+    height: 0;
+    width: 0;
+}
+
+.header .checkbox-container .checkmark{
+    height: 75%;
+    width: 75%;
+    border-radius: 5px;
+    background-color: var(--light-blue-three);
+    outline: 1px solid #AAAAAA;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    position: relative;
+}
+
+.header .checkbox-container .row-checkbox:checked ~ .checkmark {
+    background-color: var(--light-blue-checked);
+}
+
+
 
 .header .task-title-container {
-    width: 85%;
+    padding-left: 5%;
+    width: 75%;
 }
 
 .todo-row-container .header .expand-icon {
@@ -85,4 +119,10 @@ body {
 .details-container {
     min-height: 200px;
     padding: 20px;
+}
+
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
