@@ -126,3 +126,11 @@ body {
     flex-direction: column;
     gap: 25px;
 }
+
+.popup-background {
+    top: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(2px);
+}
