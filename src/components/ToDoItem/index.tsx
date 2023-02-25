@@ -9,7 +9,7 @@ export default function({title, details, complete}:TaskProps){
     const [expanded, setExpanded] = useState(false);
     const [completed, setCompleted] = useState(complete);
     const toggleExpand = () => { setExpanded(!expanded); }
-    const toggleComplete = () => {setCompleted(completed);}
+    const toggleComplete = () => { setCompleted(!completed);}
     return(
     <div className='todo-row-container'>
         <Header title={title} expanded={expanded} handleExpandClick={toggleExpand} 

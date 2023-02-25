@@ -8,7 +8,7 @@ export default function Header({title, expanded, handleExpandClick, canExpand=fa
 
     return(
         <div className='header'>
-            <Checkbox checked={complete}/>
+            <Checkbox checked={complete} handleClick={handleStatusClick}/>
             <div className='task-title-container'><h1>{title}</h1></div>
             {canExpand?
                 <img data-testid='expand-button' className={`expand-icon ${expanded?'rotate':''}`} src={upArrow} onClick={handleExpandClick}/>
