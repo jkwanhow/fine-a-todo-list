@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import Example from './components/exampleComponent/Example'
+import ToDoItem from "./components/ToDoItem"
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
+  // Remove and change the styles{{}}, these are just temporary to build to row component
   return (
-    <div>
-      Hello World!
-      <Example />
+    <div style={{marginTop: '100px', width: '100%', display: 'flex', justifyContent:'center'}}>
+      <div style={{width: '50%'}}>
+      <ToDoItem />
+      </div>
     </div>
   )
 }

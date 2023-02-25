@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --generic-font: "Roboto";
+    --light-blue: #e2f4ff;
+    --light-blue-secondary: #f2f9fe;
+    --dark-blue: #120d61;
+    --font-color-light: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+/*
+    Overwrite the bold on h1 to be normal
+*/
+h1 {
+    font-weight: normal;
+}
+
+body {
+    background-color: var(--light-blue);
+    font-family: var(--generic-font);
+    color: var(--font-color-light);
+}
+
+.todo-row-container {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 5px;
+    background-color: var(--light-blue-secondary);
+    
+}
+
+.todo-row-container .header {
+    padding: 10px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+}
