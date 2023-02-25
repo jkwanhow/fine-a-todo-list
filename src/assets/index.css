@@ -86,3 +86,9 @@ body {
     min-height: 200px;
     padding: 20px;
 }
+
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
