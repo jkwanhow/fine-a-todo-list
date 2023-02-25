@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, fireEvent} from '@testing-library/react';
+import {render, fireEvent, screen} from '@testing-library/react';
 
 import ToDoItem from '..';
 
@@ -19,16 +19,31 @@ describe('Task Row Component', () => {
     it('should be able to expand and show details', () => {
         const details = 'long description example 123123321'
         const example2Props = {title:'dumby title', details};
+        
+        const {getByTestId} = render(<ToDoItem {...example2Props} />)
+        const detailsElementPreClick = screen.queryByTestId('details-text')
 
-        const {getAllByTestId, getByTestId} = render(<ToDoItem {...example2Props} />)
-        //cannnot find id, look how to show the element doesnt exist after dinner
-        expect(getAllByTestId('details-text').length).toBe(0);
+        expect(detailsElementPreClick).toBeNull();
 
-        const h1Element = getByTestId('expand-button');
-        fireEvent.click(h1Element);
+        const expandButton = getByTestId('expand-button');
+        fireEvent.click(expandButton);
 
-
-        expect(getByTestId('details-text').textContent).toBe(details);
+        //When expand button is clicked show details
+        const detailsElementPostClick = screen.queryByTestId('details-text');
+        if (detailsElementPostClick){
+            expect(detailsElementPostClick.textContent).toBe(details);
+        }else{
+            throw new Error('failed, details component did not render');
+        }
 
     })
+
+    it('should not have an expand button if there are no details', () => {
+        render(<ToDoItem title='no details Item' details='' />);
+
+        const expandButton = screen.queryByTestId('expand-button');
+
+        expect(expandButton).toBeNull();
+    })
+    
 })
