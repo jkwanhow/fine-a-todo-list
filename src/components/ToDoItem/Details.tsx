@@ -6,7 +6,7 @@ export default function Details({details}:DetailsProps){
     return(
         <>
             <div className='line-seperator'/>
-            <div className='details-container'>
+            <div data-testid='details-text' className='details-container'>
                 {details}
             </div>
         </>

@@ -9,7 +9,7 @@ export default function Header({title, expanded, handleExpandClick, canExpand=fa
         <div className='header'>
             <div className='task-title-container'><h1>{title}</h1></div>
             {canExpand?
-                <img className={`expand-icon ${expanded?'rotate':''}`} src={upArrow} onClick={handleExpandClick}/>
+                <img data-testid='expand-button' className={`expand-icon ${expanded?'rotate':''}`} src={upArrow} onClick={handleExpandClick}/>
                 :
                 <div className='expand-icon'/>
             }
