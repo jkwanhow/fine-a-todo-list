@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import { TasksProvider, useTasks } from './components/Contexts/TaskContext';
 import Tasks from './components/Tasks';
 import Popup from './components/Popup';
+import PopupCard from './components/Popup/PopupContent/PopupCard';
 
 function App() {
   const tasks = useTasks();
@@ -21,7 +22,7 @@ function App() {
         </div>
         {isPoppedUp?
         <Popup closePopup={handlePopupClose}>
-          <div>example</div>
+          <PopupCard />
         </Popup>
         :null}
       </div>
