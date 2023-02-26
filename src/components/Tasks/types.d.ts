@@ -1,4 +1,4 @@
-import { TaskProps } from "../ToDoItem/types";
+import { TaskProps } from "./Task/types";
 
 export interface TasksProps {
     tasks: TaskProps[];

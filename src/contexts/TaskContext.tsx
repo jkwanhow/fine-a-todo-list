@@ -1,6 +1,6 @@
 import {createContext, useContext, useReducer} from 'react';
 import {type Dispatch} from 'react';
-import { TaskProps } from '../ToDoItem/types';
+import { TaskProps } from '../components/Tasks/Task/types';
 
 
 type TasksAction = {

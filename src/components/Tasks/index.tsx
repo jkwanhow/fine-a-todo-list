@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ToDoItem from '../ToDoItem';
-import { useTasks } from '../Contexts/TaskContext';
+import Task from './Task';
+import { useTasks } from '../../contexts/TaskContext';
 import { TasksProps } from "./types";
 
 export default function({}){
@@ -10,7 +10,7 @@ export default function({}){
     <div className='tasks-container'>
         {tasks.map((task) => {
             return(
-                <ToDoItem {...task}/>
+                <Task {...task}/>
             )
         })}
 

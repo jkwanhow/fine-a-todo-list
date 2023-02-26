@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import { TasksProvider } from './components/Contexts/TaskContext';
+import { TasksProvider } from './contexts/TaskContext';
 import Tasks from './components/Tasks';
 import Popup from './components/Popup';
 import CreateTaskContent from './components/Popup/PopupContent/CreateTaskContent';
