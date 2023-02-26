@@ -139,6 +139,7 @@ body {
 }
 
 .popup-card {
+    z-index: 100;
     width: 75vw;
     height: 75vh;
     border-radius: 5px;
@@ -146,4 +147,20 @@ body {
     display: flex;
     justify-content: center;
     padding: 25px;
+}
+
+.text-input-container {
+    border: 1px solid #AAAAAA;
+    border-radius: 5px;
+}
+
+.text-input {
+    border-radius: 5px;
+    font-size: 3rem;
+    border: none;
+}
+
+.text-input:focus {
+    border-radius: 5px;
+    outline: 1px solid #68bcf1;
 }
