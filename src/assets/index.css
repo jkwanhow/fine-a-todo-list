@@ -194,3 +194,16 @@ body {
     background-color: #3b2ef3;
     cursor: pointer;
 }
+
+.add-task-button {
+    color: #FFFFFF;
+    width: 25vw;
+    font-size: 2rem;
+    background-color: #3b2ef3;
+    border-radius: 10px;
+}
+
+.add-task-button:hover {
+    background-color: #5347fb;
+    cursor: pointer;
+}
