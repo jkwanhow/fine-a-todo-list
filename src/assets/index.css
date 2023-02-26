@@ -126,3 +126,71 @@ body {
     flex-direction: column;
     gap: 25px;
 }
+
+.popup-background {
+    top: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-card {
+    z-index: 100;
+    width: 75vw;
+    height: 75vh;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    align-items: center;
+    padding: 25px;
+}
+
+.text-input-container {
+    border: 1px solid #AAAAAA;
+    border-radius: 5px;
+}
+
+.text-input {
+    border-radius: 5px;
+    font-family: "Roboto";
+    font-size: 2rem;
+    border: none;
+}
+
+.text-input:focus {
+    border-radius: 5px;
+    outline: 1px solid #68bcf1;
+}
+
+.text-area {
+    border: 1px solid #AAAAAA;
+    font-size: 1em;
+    font-family: "Roboto";
+    border-radius: 5px;
+    resize: none;
+}
+
+.text-area:focus {
+    border-radius: 5px;
+    outline: 1px solid #68bcf1;
+}
+
+.submit-button {
+    border: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-size: 1rem;
+    padding: 10px;
+    background-color: #5347fb;
+}
+
+.submit-button:hover {
+    background-color: #3b2ef3;
+    cursor: pointer;
+}
