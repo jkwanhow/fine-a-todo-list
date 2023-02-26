@@ -12,11 +12,11 @@ function App() {
   // Remove and change the styles{{}}, these are just temporary to build to row component
   return (
     <TasksProvider>
-      <div style={{marginTop: '100px', width: '100%', display: 'flex', justifyContent:'center'}}>
-        <button onClick={togglePopup}>Open Popup</button>
+      <div style={{marginTop: '100px', width: '100%', display: 'flex', flexDirection: 'column', alignItems:'center', gap: '20px'}}>
         <div style={{width: '50%'}}>
           <Tasks/>
         </div>
+        <button className='add-task-button' onClick={togglePopup}>Add a task</button>
         {isPoppedUp?
         <Popup closePopup={handlePopupClose}>
           <CreateTaskContent closePopup={handlePopupClose}/>
