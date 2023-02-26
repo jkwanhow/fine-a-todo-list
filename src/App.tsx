@@ -1,14 +1,11 @@
 import React, {useState} from 'react';
 
-import { TasksProvider, useTasks } from './components/Contexts/TaskContext';
+import { TasksProvider } from './components/Contexts/TaskContext';
 import Tasks from './components/Tasks';
 import Popup from './components/Popup';
 import CreateTaskContent from './components/Popup/PopupContent/CreateTaskContent';
 
 function App() {
-  const tasks = useTasks();
-
-
   const [isPoppedUp, setIsPoppedUp] = useState(false);
   const handlePopupClose = () => {setIsPoppedUp(false);}
   const togglePopup = () => { setIsPoppedUp(true);}
@@ -18,11 +15,11 @@ function App() {
       <div style={{marginTop: '100px', width: '100%', display: 'flex', justifyContent:'center'}}>
         <button onClick={togglePopup}>Open Popup</button>
         <div style={{width: '50%'}}>
-          <Tasks tasks={tasks}/>
+          <Tasks/>
         </div>
         {isPoppedUp?
         <Popup closePopup={handlePopupClose}>
-          <CreateTaskContent />
+          <CreateTaskContent closePopup={handlePopupClose}/>
         </Popup>
         :null}
       </div>

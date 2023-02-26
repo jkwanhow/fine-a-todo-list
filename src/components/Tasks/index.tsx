@@ -1,10 +1,11 @@
 import React from 'react';
 
 import ToDoItem from '../ToDoItem';
+import { useTasks } from '../Contexts/TaskContext';
 import { TasksProps } from "./types";
 
-export default function({tasks}:TasksProps){
-
+export default function({}){
+    const tasks = useTasks();
     return(
     <div className='tasks-container'>
         {tasks.map((task) => {

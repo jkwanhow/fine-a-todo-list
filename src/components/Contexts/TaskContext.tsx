@@ -2,6 +2,7 @@ import {createContext, useContext, useReducer} from 'react';
 import {type Dispatch} from 'react';
 import { TaskProps } from '../ToDoItem/types';
 
+
 type TasksAction = {
     type: string;
     payload?: TaskProps;
@@ -52,8 +53,14 @@ export function useTasksDispatch(){
 function taskReducer(tasks:any, action:TasksAction){
     switch (action.type){
         case 'add': {
+            let highestId = tasks[0].id;
+            tasks.forEach((task:TaskProps) => {
+                if (task.id > highestId) {
+                    highestId = task.id;
+                }
+            })
             return [...tasks, 
-            action.payload]
+            {id: highestId, ...action.payload}]
         }
         default : {
             throw new Error(`Action: ${action.type} is not a valid action`);
