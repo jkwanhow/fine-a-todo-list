@@ -1,8 +1,8 @@
 import React from 'react';
 import { HeaderProps } from './types';
-import upArrow from '../../assets/icons/expandUpArrow.svg';
-import editIcon from '../../assets/icons/edit.svg';
-import Checkbox from '../Inputs/Checkbox';
+import upArrow from '../../../assets/icons/expandUpArrow.svg';
+import editIcon from '../../../assets/icons/edit.svg';
+import Checkbox from '../../Inputs/Checkbox';
 
 export default function Header({title, expanded, handleExpandClick, canExpand=false, complete, handleStatusClick}:HeaderProps){
 

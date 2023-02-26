@@ -1,7 +1,7 @@
 import React from 'react';
 import {render, fireEvent, screen} from '@testing-library/react';
 
-import ToDoItem from '..';
+import Task from '..';
 
 describe('Task Row Component', () => {
 
@@ -9,7 +9,7 @@ describe('Task Row Component', () => {
         const title = 'exampleTitle124321'
         const example1Props = {title, details: '', complete:true, id: 0};
 
-        const {getByRole} = render(<ToDoItem {...example1Props} />)
+        const {getByRole} = render(<Task {...example1Props} />)
         const h1Element = getByRole('heading');
 
         expect(h1Element.textContent).toBe(title);
@@ -20,7 +20,7 @@ describe('Task Row Component', () => {
         const details = 'long description example 123123321'
         const example2Props = {title:'dumby title', details, complete:true, id: 1};
         
-        const {getByTestId} = render(<ToDoItem {...example2Props} />)
+        const {getByTestId} = render(<Task {...example2Props} />)
         const detailsElementPreClick = screen.queryByTestId('details-text')
 
         expect(detailsElementPreClick).toBeNull();
@@ -39,7 +39,7 @@ describe('Task Row Component', () => {
     })
 
     it('should not have an expand button if there are no details', () => {
-        render(<ToDoItem title='no details Item' details='' complete={true} id={2}/>);
+        render(<Task title='no details Item' details='' complete={true} id={2}/>);
 
         const expandButton = screen.queryByTestId('expand-button');
 

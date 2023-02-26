@@ -1,6 +1,6 @@
 import {createContext, useContext, useReducer} from 'react';
 import {type Dispatch} from 'react';
-import { TaskProps } from '../ToDoItem/types';
+import { TaskProps } from '../components/Tasks/Task/types';
 
 
 type TasksAction = {
@@ -60,7 +60,7 @@ function taskReducer(tasks:any, action:TasksAction){
                 }
             })
             return [...tasks, 
-            {id: highestId, ...action.payload}]
+            {id: highestId+1, ...action.payload}]
         }
         default : {
             throw new Error(`Action: ${action.type} is not a valid action`);
