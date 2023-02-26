@@ -60,7 +60,7 @@ function taskReducer(tasks:any, action:TasksAction){
                 }
             })
             return [...tasks, 
-            {id: highestId, ...action.payload}]
+            {id: highestId+1, ...action.payload}]
         }
         default : {
             throw new Error(`Action: ${action.type} is not a valid action`);
