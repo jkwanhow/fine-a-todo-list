@@ -2,6 +2,8 @@ import {createContext, useContext, useReducer} from 'react';
 import {type Dispatch} from 'react';
 import { TaskProps } from '../components/Tasks/Task/types';
 
+import { getIndexOfTaskWithId } from '../services/taskFunctions';
+
 
 type TasksAction = {
     type: string;
@@ -61,6 +63,18 @@ function taskReducer(tasks:any, action:TasksAction){
             })
             return [...tasks, 
             {id: highestId+1, ...action.payload}]
+        }
+        case 'delete' : {
+            if (action.id){
+            const taskIdToDelete = action.id;
+            const taskIndexToDelete = getIndexOfTaskWithId(taskIdToDelete, tasks);
+            let clonedTasks = [...tasks];
+            clonedTasks.splice(taskIndexToDelete, 1);
+            return clonedTasks;
+            }else{
+                throw new Error('id is not defined');
+            }
+
         }
         default : {
             throw new Error(`Action: ${action.type} is not a valid action`);
