@@ -18,7 +18,7 @@ export default function Header({title, expanded, handleExpandClick, canExpand=fa
             }
             <div className='right-side-icons'>
                 <img className='edit-icon' src={editIcon} />
-                <img className='delete-icon' src={deleteIcon} onClick={handleDelete}/>
+                <img data-testid='delete-button' className='delete-icon' src={deleteIcon} onClick={handleDelete}/>
             </div>
         </div>
     )

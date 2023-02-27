@@ -54,9 +54,9 @@ export function useTasksDispatch(){
 function taskReducer(tasks:any, action:TasksAction){
     switch (action.type){
         case 'add': {
-            let highestId = -1;
+            var highestId = -1;
             if(tasks.length){
-            let highestId = tasks[0].id;
+            highestId = tasks[0].id;
             tasks.forEach((task:TaskProps) => {
                 if (task.id > highestId) {
                     highestId = task.id;
