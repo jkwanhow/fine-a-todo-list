@@ -1,6 +1,7 @@
 import {createContext, useContext, useReducer} from 'react';
 import {type Dispatch} from 'react';
 import { TaskProps } from '../components/Tasks/Task/types';
+import { getIndexOfTaskWithId } from '../services/taskFunctions';
 
 
 type TasksAction = {
@@ -53,14 +54,29 @@ export function useTasksDispatch(){
 function taskReducer(tasks:any, action:TasksAction){
     switch (action.type){
         case 'add': {
-            let highestId = tasks[0].id;
+            var highestId = -1;
+            if(tasks.length){
+            highestId = tasks[0].id;
             tasks.forEach((task:TaskProps) => {
                 if (task.id > highestId) {
                     highestId = task.id;
                 }
             })
+            }
             return [...tasks, 
             {id: highestId+1, ...action.payload}]
+        }
+        case 'delete' : {
+            if (typeof(action.id) !== 'undefined'){
+            const taskIdToDelete = action.id;
+            const taskIndexToDelete = getIndexOfTaskWithId(taskIdToDelete, tasks);
+            let clonedTasks = [...tasks];
+            clonedTasks.splice(taskIndexToDelete, 1);
+            return clonedTasks;
+            }else{
+                throw new Error('id is not defined');
+            }
+
         }
         default : {
             throw new Error(`Action: ${action.type} is not a valid action`);
