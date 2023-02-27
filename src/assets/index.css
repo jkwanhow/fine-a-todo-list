@@ -98,19 +98,43 @@ li {
     opacity: 1;
 }
 
-.todo-row-container .header .edit-icon {
+.todo-row-container .header .right-side-icons {
+    width: 3%;
+    min-height: 100px;
+    position: relative;
+}
+
+.todo-row-container .header .right-side-icons .edit-icon {
+    position: absolute;
+    top: 0;
     margin-bottom: auto;
     height: 1rem;
-    width: 3%;
     opacity: 0.2;
     visibility: hidden; 
 }
 
-.todo-row-container:hover .edit-icon {
+.todo-row-container .header .right-side-icons .delete-icon {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: auto;
+    height: 1rem;
+    opacity: 0.2;
+    visibility: hidden; 
+}
+
+.todo-row-container:hover .right-side-icons .edit-icon {
+    visibility: visible;
+}
+
+.todo-row-container:hover .right-side-icons .delete-icon {
     visibility: visible;
 }
 
 .todo-row-container .header .edit-icon:hover {
+    opacity: 0.8;
+}
+
+.todo-row-container .header .delete-icon:hover {
     opacity: 0.8;
 }
 
