@@ -7,13 +7,13 @@ import { TasksProps } from "./types";
 export default function({}){
     const tasks = useTasks();
     return(
-    <div className='tasks-container'>
+    <ul className='tasks-container'>
         {tasks.map((task) => {
             return(
                 <Task {...task}/>
             )
         })}
 
-    </div>
+    </ul>
     )
 }

@@ -11,7 +11,7 @@ export default function({title, details, complete}:TaskProps){
     const toggleExpand = () => { setExpanded(!expanded); }
     const toggleComplete = () => { setCompleted(!completed);}
     return(
-    <div className='todo-row-container'>
+    <li className='todo-row-container'>
         <Header title={title} expanded={expanded} handleExpandClick={toggleExpand} 
         canExpand={details?true:false} complete={completed} handleStatusClick={toggleComplete}/>
         {expanded?
@@ -19,6 +19,6 @@ export default function({title, details, complete}:TaskProps){
         :
         null
         }
-    </div>
+    </li>
     )
 }
