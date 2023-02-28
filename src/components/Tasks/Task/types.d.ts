@@ -12,7 +12,7 @@ export interface HeaderProps {
     canExpand?: boolean;
     complete: boolean;
     handleStatusClick: () => void;
-    handleDelete: () => void;
+    handleDispatch: (action:"DELETE"|"EDIT") => void;
 
 }
 export interface DetailsProps {

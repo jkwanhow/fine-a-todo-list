@@ -13,19 +13,29 @@ export default function({title, details, complete, id}:TaskProps){
     const toggleExpand = () => { setExpanded(!expanded); }
     const toggleComplete = () => { setCompleted(!completed);}
 
-    const handleItemDelete = () => {
-        popupDispatch({
-            type: 'open',
-            content: 'DELETE',
-            targetId:id
-        })
+    const dispatchAnAction = (key:"DELETE"|"EDIT") => {
+        if (key === "DELETE"){
+            popupDispatch({
+                type: 'open',
+                content: 'DELETE',
+                targetId:id
+            })
+        }else{
+            popupDispatch({
+                type: 'open',
+                content: 'EDIT',
+                payload: {title, details},
+                targetId:id
+            })
+        }
     }
+
 
     return(
     <li className='todo-row-container'>
         <Header title={title} expanded={expanded} handleExpandClick={toggleExpand} 
         canExpand={details?true:false} complete={completed} handleStatusClick={toggleComplete}
-        handleDelete={handleItemDelete}/>
+        handleDispatch={dispatchAnAction}/>
         {expanded?
         <Details details={details} />
         :

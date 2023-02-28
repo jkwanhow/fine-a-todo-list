@@ -13,13 +13,13 @@ type TasksAction = {
 
 const initialTasks:TaskProps[] = [
     {
-        id: 0,
+        id: 1,
         title: 'example title',
         details: 'this is a temporary description for now will delete later',
         complete: false,
     },
     {
-        id: 1,
+        id: 2,
         title: 'Eat Food',
         details: 'temp description two',
         complete: false
@@ -54,7 +54,7 @@ export function useTasksDispatch(){
 function taskReducer(tasks:any, action:TasksAction){
     switch (action.type){
         case 'add': {
-            var highestId = -1;
+            var highestId = 1;
             if(tasks.length){
             highestId = tasks[0].id;
             tasks.forEach((task:TaskProps) => {
@@ -65,6 +65,18 @@ function taskReducer(tasks:any, action:TasksAction){
             }
             return [...tasks, 
             {id: highestId+1, ...action.payload}]
+        }
+        case 'edit' : {
+            if (typeof(action.id) !== 'undefined'){
+                let targetId = action.id
+                let clonedTasks = [...tasks];
+                const indexOfTaskToEdit = getIndexOfTaskWithId(targetId, clonedTasks);
+                clonedTasks[indexOfTaskToEdit] = {id: targetId, ...action.payload}
+                return clonedTasks;
+            }else{
+                throw new Error('need to be provided an id to edit a task')
+            }
+
         }
         case 'delete' : {
             if (typeof(action.id) !== 'undefined'){
