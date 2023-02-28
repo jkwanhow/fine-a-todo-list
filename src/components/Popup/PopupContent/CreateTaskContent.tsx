@@ -4,9 +4,11 @@ import PopupCard from './PopupCard';
 import TextInput from '../../Inputs/TextInput';
 import TextAreaInput from '../../Inputs/TextAreaInput';
 import { useTasksDispatch } from '../../../contexts/TaskContext';
+import { usePopupDispatch } from '../../../contexts/PopupContext';
 
-export default function CreateTaskContent({closePopup}:{closePopup:()=>void}){
-    const dispatch = useTasksDispatch();
+export default function CreateTaskContent({}){
+    const taskDispatch = useTasksDispatch();
+    const popupDispatch = usePopupDispatch();
 
     const [title, setTitle] = useState('');
     const handleTitleChange = (value:string) => {
@@ -18,11 +20,13 @@ export default function CreateTaskContent({closePopup}:{closePopup:()=>void}){
     }
 
     const handleSubmit = () => {
-        dispatch({
+        taskDispatch({
             type:'add',
             payload: {title, details, complete:false}
         });
-        closePopup();
+        popupDispatch({
+            type: 'close',
+        })
     }
 
     return(
