@@ -47,8 +47,8 @@ li {
     height: 100%;
 }
 .header .checkbox-container {
-    width: 2rem;
-    height: 2rem;
+    width: clamp(20px, 2vw, 2rem);
+    height: clamp(20px, 2vw, 2rem);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,8 +76,6 @@ li {
     background-color: var(--light-blue-checked);
 }
 
-
-
 .header .task-title-container {
     padding-left: 5%;
     width: 75%;
@@ -99,7 +97,7 @@ li {
 }
 
 .todo-row-container .header .right-side-icons {
-    width: 3%;
+    width: clamp(40px, 3%, 3%);
     min-height: 100px;
     position: relative;
 }
