@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+
 
 export default function Example({}){
-
     const [clicks, setClicks] = useState(0);
     const handleIncrementClick = () => {
         setClicks(clicks+1);
     }
+    useEffect(() => {
+        console.log('testing my understanding of context');
+    })
 
     return(
         <>
