@@ -4,7 +4,6 @@ import { TasksProvider } from './contexts/TaskContext';
 import Tasks from './components/Tasks';
 import Popup from './components/Popup';
 import CreateTaskContent from './components/Popup/PopupContent/CreateTaskContent';
-import Example from './components/exampleComponent/Example';
 import { usePopupDispatch } from './contexts/PopupContext';
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
               content: 'CREATE',
             })
           }}>Add a task</button>
-          <Example />
           <Popup />
         </div>
     </TasksProvider>
