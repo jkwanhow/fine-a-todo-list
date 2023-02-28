@@ -11,11 +11,10 @@ npm test
  - add tasks via a popup (styling still in progress)
  - view tasks details
  - complete task
+ - delete a task
 
 features to add:
-- complete task reducer
-- delete a task
+- edit a task
 - navbar for sections
 - task sections
 - task section progression display
-
