@@ -34,12 +34,13 @@ export default function CreateTaskContent({}){
             <div>
                 <h2>Task Name:</h2>
                 <TextInput value={title} handleChange={handleTitleChange}/>
+                {!title?<h5 className='note need-title'>Task needs a title, at least</h5>:null}
             </div>
             <div>
                 <h2>Task Details:</h2>
                 <TextAreaInput value={details} handleChange={handleDetailsChange}/>
             </div>
-            <button className='submit-button' onClick={handleSubmit}>Create Task</button>
+            <button className='submit-button' disabled={!title} onClick={handleSubmit}>Create Task</button>
         </PopupCard>
     )
 }

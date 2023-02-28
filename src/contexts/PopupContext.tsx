@@ -1,18 +1,17 @@
 import React, {useContext, createContext, useReducer} from 'react';
 import type { Dispatch } from 'react';
 
+import { PopupContent, PopupDetails } from '../components/Popup/types';
+
 type PopupAction = {
     type: string;
-    content: string;
-}
-
-interface PopupDetails{
-    open: boolean, 
-    content: string
+    content: PopupContent;
+    targetId?: number,
 }
 
 
-const intitialPopup:PopupDetails = {open: false, content: 'CREATE'};
+
+const intitialPopup:PopupDetails = {open: false, content: 'CREATE', targetId: 0};
 
 
 const PopupContext = createContext(intitialPopup);
@@ -44,10 +43,14 @@ export const usePopupDispatch = () => {
 function popupReducer(popupDetails:PopupDetails, action:PopupAction){
     switch (action.type) {
         case "open": {
-            return {open: true, content: action.content}
+            let targetId = popupDetails.targetId;
+            if (action.targetId){
+                targetId = action.targetId;
+            }
+            return {open: true, content: action.content, targetId}
         }
         case "close": {
-            return {...popupDetails, open: false}
+            return {...popupDetails, open: false, targetId: popupDetails.targetId}
         }
         default : {
             throw new Error(`unknown action type '${action.type}' use either close or open`)
