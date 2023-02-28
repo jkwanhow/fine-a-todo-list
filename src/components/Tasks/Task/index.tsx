@@ -3,21 +3,21 @@ import React, {useState} from 'react'
 import Header from "./Header"
 import Details from './Details';
 import { TaskProps } from './types';
-import { useTasksDispatch } from '../../../contexts/TaskContext';
+import { usePopupDispatch } from '../../../contexts/PopupContext';
 
 
 export default function({title, details, complete, id}:TaskProps){
-    const dispatch = useTasksDispatch();
-
+    const popupDispatch = usePopupDispatch();
     const [expanded, setExpanded] = useState(false);
     const [completed, setCompleted] = useState(complete);
     const toggleExpand = () => { setExpanded(!expanded); }
     const toggleComplete = () => { setCompleted(!completed);}
 
     const handleItemDelete = () => {
-        dispatch({
-            type: 'delete',
-            id
+        popupDispatch({
+            type: 'open',
+            content: 'DELETE',
+            targetId:id
         })
     }
 

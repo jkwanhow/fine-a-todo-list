@@ -168,8 +168,6 @@ li {
 
 .popup-card {
     z-index: 100;
-    width: 75vw;
-    height: 75vh;
     border-radius: 5px;
     background-color: #FFFFFF;
     display: flex;
@@ -177,6 +175,17 @@ li {
     gap: 10%;
     align-items: center;
     padding: 25px;
+}
+
+.popup-card.large{
+    width: 75vw;
+    height: 75vh;
+}
+
+.popup-card.small{
+    text-align: center;
+    width: 25vw;
+    height: 25vh;
 }
 
 .text-input-container {
@@ -216,11 +225,21 @@ li {
     font-size: 1rem;
     padding: 10px;
     background-color: #5347fb;
+    min-width: 100px;
 }
 
 .submit-button:hover {
     background-color: #3b2ef3;
     cursor: pointer;
+}
+
+.note {
+    color: red;
+}
+
+.submit-button:disabled {
+    background-color: #828099;
+    cursor: not-allowed;
 }
 
 .add-task-button {
