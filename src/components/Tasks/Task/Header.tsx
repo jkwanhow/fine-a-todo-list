@@ -5,7 +5,7 @@ import editIcon from '../../../assets/icons/edit.svg';
 import deleteIcon from '../../../assets/icons/deleteIcon.svg';
 import Checkbox from '../../Inputs/Checkbox';
 
-export default function Header({title, expanded, handleExpandClick, canExpand=false, complete, handleStatusClick, handleDelete}:HeaderProps){
+export default function Header({title, expanded, handleExpandClick, canExpand=false, complete, handleStatusClick, handleDispatch}:HeaderProps){
 
     return(
         <div className='header'>
@@ -17,8 +17,8 @@ export default function Header({title, expanded, handleExpandClick, canExpand=fa
                 <div className='expand-icon'/>
             }
             <div className='right-side-icons'>
-                <img className='edit-icon' src={editIcon} />
-                <img data-testid='delete-button' className='delete-icon' src={deleteIcon} onClick={handleDelete}/>
+                <img className='edit-icon' src={editIcon} onClick={() => {handleDispatch('EDIT')}}/>
+                <img data-testid='delete-button' className='delete-icon' src={deleteIcon} onClick={() => {handleDispatch('DELETE')}}/>
             </div>
         </div>
     )

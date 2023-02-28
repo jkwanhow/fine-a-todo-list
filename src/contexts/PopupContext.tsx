@@ -7,6 +7,7 @@ type PopupAction = {
     type: string;
     content: PopupContent;
     targetId?: number,
+    payload? : {title: string, details: string}
 }
 
 
@@ -44,10 +45,14 @@ function popupReducer(popupDetails:PopupDetails, action:PopupAction){
     switch (action.type) {
         case "open": {
             let targetId = popupDetails.targetId;
+            let payload = {title: '', details: ''}
             if (action.targetId){
                 targetId = action.targetId;
             }
-            return {open: true, content: action.content, targetId}
+            if(action.payload){
+                payload = action.payload
+            }
+            return {open: true, content: action.content, targetId, payload}
         }
         case "close": {
             return {...popupDetails, open: false, targetId: popupDetails.targetId}
