@@ -12,9 +12,9 @@ npm test
  - view tasks details
  - complete task
  - delete a task
+ - edit a task
 
 features to add:
-- edit a task
 - navbar for sections
 - task sections
 - task section progression display
