@@ -1,5 +1,6 @@
 import React, {useContext, createContext, useReducer} from 'react';
 import type { Dispatch } from 'react';
+import Popup from '../components/Popup';
 
 import { PopupContent, PopupDetails } from '../components/Popup/types';
 
@@ -26,6 +27,7 @@ export function PopupProvider({children}:{children:JSX.Element|JSX.Element[]}){
         <PopupContext.Provider value={popupDetails}>
             <PopuipDispatchContext.Provider value={dispatch}>
                 {children}
+                <Popup />
             </PopuipDispatchContext.Provider>
         </PopupContext.Provider>
     )
